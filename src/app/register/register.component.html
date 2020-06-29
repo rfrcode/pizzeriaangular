@@ -1,1 +1,16 @@
-<p>register works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Nombre
+        <input formControlName="name" />
+        <span *ngIf="form.controls.name.errors?.required &&
+         form.dirty ">El nombre es requerido.</span>
+    </label>
+    <label>Email
+        <input formControlName="email" />
+        <span *ngIf="form.controls.email.errors?.required &&
+         form.dirty ">El email es requerido.</span>
+    </label>
+    <label>Password
+        <input type="password" formControlName="password" />
+    </label>
+    <button type="submit" [disabled]="!form.dirty">Enviar</button>
+</form>

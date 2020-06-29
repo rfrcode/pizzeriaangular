@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  raul: false
+  raul: false,
+  urlApi: 'http://localhost:3000'
 };
 
 /*

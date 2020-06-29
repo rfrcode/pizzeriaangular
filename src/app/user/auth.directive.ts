@@ -12,6 +12,7 @@ const HIDDEN: string = 'hidden';
 export class AuthDirective implements OnInit, OnDestroy {
   private subscription: Subscription;
   @Input() auth: string
+  
   constructor(private userService: UserService, private elementRef: ElementRef) {
     this.subscription = this.userService.userObservable.subscribe(user => this.toggleHidden(user))
   }
@@ -19,7 +20,7 @@ export class AuthDirective implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  toggleHidden(user: User){
+  toggleHidden(user: User) {
     if (!this.userService.checkRole(user, this.auth)) {
       this.elementRef.nativeElement.classList.add(HIDDEN);
     }
@@ -32,5 +33,4 @@ export class AuthDirective implements OnInit, OnDestroy {
     const user = await this.userService.get();
     this.toggleHidden(user);
   }
-
 }

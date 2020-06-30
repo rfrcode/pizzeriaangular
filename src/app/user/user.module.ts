@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthDirective } from './auth.directive'
-
-
+import { NgModule } from '@angular/core';
+import { AuthDirective } from './auth.directive';
 
 @NgModule({
   declarations: [AuthDirective],

@@ -3,11 +3,21 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Subscription } from 'rxjs'
 import { LoginserviceService } from './loginservice.service'
 import { UserService } from '../user/user.service'
+import { ValidatorService } from '../../app/validators/validator.service'
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [
+    {
+      provide: ValidatorService, useFactory: (validator: object) => {
+        return new ValidatorService(validator)
+      },
+      deps: ['LOGINVALIDATOR']
+    }
+  ]
 })
 export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup
@@ -16,10 +26,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginserviceService,
-    private userService: UserService) { }
+    private userService: UserService
+  ) {
+  }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   ngOnInit(): void {

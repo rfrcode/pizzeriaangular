@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module'
 
+const LOGINVALIDATOR = { attribute: 'name', fnValidator: () => { } }
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,7 @@ import { UserModule } from './user/user.module'
     AppRoutingModule,
     UserModule,
   ],
-  providers: [],
+  providers: [{ provide: 'LOGINVALIDATOR', useValue: LOGINVALIDATOR }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

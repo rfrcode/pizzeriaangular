@@ -1,8 +1,7 @@
-import { Directive, Input, ElementRef } from '@angular/core';
-import { UserService } from './user.service'
-import { OnInit, OnDestroy } from '@angular/core'
-import { User } from '../models/user'
-import { Observable, Subscription } from 'rxjs';
+import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { User } from '../models/user';
+import { UserService } from './user.service';
 
 const HIDDEN: string = 'hidden';
 
@@ -12,14 +11,15 @@ const HIDDEN: string = 'hidden';
 export class AuthDirective implements OnInit, OnDestroy {
   private subscription: Subscription;
   @Input() auth: string
-  
+
   constructor(private userService: UserService, private elementRef: ElementRef) {
-    this.subscription = this.userService.userObservable.subscribe(user => this.toggleHidden(user))
+    this.subscription = this.userService.userObservable.subscribe(
+      user => this.toggleHidden(user)
+    )
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-
   toggleHidden(user: User) {
     if (!this.userService.checkRole(user, this.auth)) {
       this.elementRef.nativeElement.classList.add(HIDDEN);
@@ -28,7 +28,6 @@ export class AuthDirective implements OnInit, OnDestroy {
       this.elementRef.nativeElement.classList.remove(HIDDEN);
     }
   }
-
   async ngOnInit(): Promise<void> {
     const user = await this.userService.get();
     this.toggleHidden(user);

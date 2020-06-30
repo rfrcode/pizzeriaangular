@@ -1,12 +1,17 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
     <label>Email
-        <input formControlName="email" />
+        <input formControlName="email" rule="email" />
         <span *ngIf="form.controls.email.errors?.required &&
          form.dirty ">El email es requerido.</span>
     </label>
     <label>Password
-        <input type="password" formControlName="password" />
+        <input type="password" formControlName="password" rule="password"/>
     </label>
     <button type="submit" [disabled]="!form.dirty">Enviar</button>
 </form>
 <a routerLink="/register">Registrarse</a>
+
+<!-- <input rule="emaillogin" /> -->
+
+
+

@@ -1,10 +1,12 @@
+import { Validator } from '../models/validator'
+
 export class ValidatorService {
-    validator: object;
-    constructor(validator: object) {
-        this.validator = validator;
+    validators: Validator[];
+    constructor(validators: Validator[]) {
+        this.validators = validators;
     }
 }
 
-export function ValidatorFactory(validator: object) {
-    return () => new ValidatorService(validator)
+export function ValidatorFactory(validators: Validator[]) {
+    return () => new ValidatorService(validators)
 }

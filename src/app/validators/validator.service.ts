@@ -1,12 +1,12 @@
-import { Validator } from '../models/validator'
+import { ValidatorField } from '../models/validator'
 
 export class ValidatorService {
-    validators: Validator[];
-    constructor(validators: Validator[]) {
-        this.validators = validators;
+    validatorFields: ValidatorField[];
+    constructor(validatorFields: ValidatorField[]) {
+        this.validatorFields = validatorFields;
     }
 }
 
-export function ValidatorFactory(validators: Validator[]) {
-    return () => new ValidatorService(validators)
+export function ValidatorFactory(validatorFields: ValidatorField[]) {
+    return () => new ValidatorService(validatorFields)
 }

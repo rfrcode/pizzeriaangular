@@ -1,12 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { ValidatorFactory, ValidatorService } from '../../app/validators/validator.service';
 import { UserService } from '../user/user.service';
 import { RegisterService } from './register.service';
-import { ValidatorService, ValidatorFactory } from '../../app/validators/validator.service'
 
-
-const REGISTERVALIDATOR = { attribute: 'email', fnValidator: () => { } }
+const REGISTERVALIDATOR = [{
+  fields: ["email"],
+  message: "email es requerido",
+  validators: [{ sanitizer: false, validator: () => true, args: [1, 50] }]
+}]
 
 @Component({
   selector: 'app-register',
@@ -28,8 +31,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: [''],
+      email: [''],
       password: [''],
     })
   }

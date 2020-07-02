@@ -1,10 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { Subscription } from 'rxjs'
-import { LoginserviceService } from './loginservice.service'
-import { UserService } from '../user/user.service'
-import { ValidatorService } from '../../app/validators/validator.service'
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { ValidatorService } from '../../app/validators/validator.service';
+import { ValidatorField } from '../models/validator';
+import { UserService } from '../user/user.service';
+import { LoginserviceService } from './loginservice.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +12,8 @@ import { ValidatorService } from '../../app/validators/validator.service'
   styleUrls: ['./login.component.css'],
   providers: [
     {
-      provide: ValidatorService, useFactory: (validator: object) => {
-        return new ValidatorService(validator)
+      provide: ValidatorService, useFactory: (validatorFields: ValidatorField[]) => {
+        return new ValidatorService(validatorFields)
       },
       deps: ['LOGINVALIDATOR']
     }
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: ['', Validators.required],
+      email: [''],
       password: [''],
     })
   }

@@ -4,17 +4,18 @@
   validators: [{sanitizer: false, validator: () => true, args: [1,50]}]
 }
  */
-export interface Validators {
+export interface Validator {
     sanitizer: boolean,
-    validator: (...args: any) => boolean,
-    args: object[]
+    validator: (...args: any) => boolean | any,
+    args: any[]
 }
 
 // un validador para un atributo tiene muchos validadores
 // check('email').normalizeEmail().isEmail(),
-export interface Validator {
+// check(['email', 'name'], 'el atributo es requerido').isRequired()
+export interface ValidatorField {
     fields: string[],
     message: string,
-    validators: Validators[]
+    validators: Validator[]
 }
 

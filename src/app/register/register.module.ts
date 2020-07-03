@@ -5,6 +5,7 @@ import { RegisterComponent } from './register.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { RegisterService } from './register.service'
+import { CoreModule } from '../core/core.module'
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -13,6 +14,7 @@ import { RegisterService } from './register.service'
     RegisterRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CoreModule
   ],
   providers: [RegisterService]
 })

@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { LoginserviceService } from './loginservice.service'
+import { CoreModule } from '../core/core.module'
 import { ValidatorsModule } from '../validators/validators.module'
 
 
@@ -17,6 +18,7 @@ import { ValidatorsModule } from '../validators/validators.module'
     LoginRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CoreModule,
     ValidatorsModule
   ],
   providers: [LoginserviceService]

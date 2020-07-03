@@ -29,20 +29,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     private userService: UserService
   ) {
   }
-
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
   }
-
   ngOnInit(): void {
     this.form = this.fb.group({
       email: [''],
       password: [''],
     })
   }
-
   submit(): void {
     this.subscription = this.loginService.login(this.form.value).subscribe(
       async user => await this.userService.add(user),

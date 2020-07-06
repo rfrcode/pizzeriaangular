@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { get, set, del } from "idb-keyval";
-import { User } from '../../../projects/user/src/lib/user';
+import { User } from './user';
 import { Subject } from 'rxjs';
 
 const key: string = 'user'

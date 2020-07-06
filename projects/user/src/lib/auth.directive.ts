@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { User } from '../../../projects/user/src/lib/user';
+import { User } from './user';
 import { UserService } from './user.service';
 
 const HIDDEN: string = 'hidden';

@@ -1,7 +1,7 @@
 import { Directive, Input, OnInit, forwardRef } from '@angular/core';
 import { ValidatorService } from './validator.service';
 import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms'
-import { ValidatorField, Validator as _Validator } from '../../../projects/validators/src/lib/validator'
+import { ValidatorField, Validator as _Validator } from './validator'
 import { Subject } from 'rxjs';
 
 

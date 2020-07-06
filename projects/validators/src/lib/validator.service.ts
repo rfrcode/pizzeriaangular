@@ -1,4 +1,4 @@
-import { ValidatorField } from '../../../projects/validators/src/lib/validator'
+import { ValidatorField } from './validator'
 
 export class ValidatorService {
     validatorFields: ValidatorField[];

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ValidatorService } from '../../app/validators/validator.service';
-import { ValidatorField } from '../models/validator';
+import { ValidatorField } from '../../../projects/validators/src/lib/validator';
 import { UserService } from '../user/user.service';
 import { LoginserviceService } from './loginservice.service';
 

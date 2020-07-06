@@ -14,7 +14,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "user": [
+        "dist/user/user",
+        "dist/user"
+      ],
+      "validators": [
+        "dist/validators/validators",
+        "dist/validators"
+      ],
+      "core": [
+        "dist/core/core",
+        "dist/core"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
